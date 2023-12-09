@@ -1,0 +1,42 @@
+server:
+  port: 9999
+  servlet:
+    context-path: /warehouse
+
+# mybatis配置
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.pn.entity
+
+# mybatis-plus配置
+mybatis-plus:
+  #配置Mapper映射文件
+  mapper-locations: classpath:/mapper/*.xml
+  # 配置Mybatis数据返回类型别名（默认别名为类名）
+  type-aliases-package: com.pn.entity
+  configuration:
+    # 自动驼峰命名
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# 文件上传
+file:
+  access-path: /img/upload/
+  upload-path: classpath:static/img/upload
+
+# 数据库配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: yzk
+    url: jdbc:mysql://localhost:3306/db_warehouse?serverTimezone=UTC
+    username: root
+  redis:
+    database: 0
+    host: 101.43.254.52
+    port: 6379
+warehouse:
+  expire-time: 28800
